@@ -1,0 +1,47 @@
+﻿@model IEnumerable<pizza.Models.NguyenLieu>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+
+}
+
+<h2>Quản Lý Kho</h2>
+
+<p>
+    @Html.ActionLink("Thêm Mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tenNL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.soluong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gia)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tenNL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.soluong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gia)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Xem", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Xóa", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
